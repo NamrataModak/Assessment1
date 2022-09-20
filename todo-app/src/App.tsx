@@ -13,20 +13,16 @@ const App: React.FC = () => {
   }
   const [taskState, setTaskState] = useState<TodoListInt> ({
     currentTask:{ task:''}, todoList:[]
-
   })
 
   const onChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) : void => {
-  
     setTaskState({...taskState,
       currentTask: { ...taskState.currentTask,[e.target.name]: e.target.value}
-
       })
-
   }
+  
   const submitForm = (e: React.SyntheticEvent): void => {
     e.preventDefault();
-
     setTaskState({
       currentTask:{task:''}, todoList:[
         ...taskState.todoList, taskState.currentTask
@@ -38,8 +34,6 @@ const App: React.FC = () => {
     const filterTask = taskState.todoList.filter((task, i) => { 
       return index !== i
     })
-  
-
     setTaskState({...taskState, todoList: filterTask})
   }
 
@@ -48,11 +42,10 @@ const App: React.FC = () => {
       <h2>{task.task}</h2>
       <button onClick={() => deletHandler(i)}>X</button>
     </div>
-
     ))
 
    
-  console.log(taskState);
+  //console.log(taskState);
   
   return (
     <div className='container'>
